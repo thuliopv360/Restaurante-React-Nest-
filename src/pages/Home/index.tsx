@@ -1,3 +1,4 @@
+import HomeContent from "../../components/HomeContent";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 //import HomeContainer from "./styles"
@@ -6,7 +7,8 @@ const Home = () => {
   return (
     <Styled.HomeContainer>
       <Menu />
-      <div className="home-content">
+      <HomeContent />
+      {/* <div className="home-content">
         <header>
           <div>
             <h1>Resturante Fresh</h1>
@@ -40,7 +42,7 @@ const Home = () => {
             <div>Card</div>
           </div>
         </section>
-      </div>
+      </div> */}
       <aside>
         <header>
           <h2>Pedido 12</h2>
