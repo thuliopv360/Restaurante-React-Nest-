@@ -1,12 +1,11 @@
+import Menu from "../../components/Menu";
+import * as Styled from "./styles";
+//import HomeContainer from "./styles"
+
 const Home = () => {
   return (
-    <div>
-      <div className="menu">
-        <img src="" alt="logo" />
-        <img src="" alt="home" />
-        <img src="" alt="setting" />
-        <img src="" alt="logoout" />
-      </div>
+    <Styled.HomeContainer>
+      <Menu />
       <div className="home-content">
         <header>
           <div>
@@ -75,7 +74,7 @@ const Home = () => {
           <button>Continuar para o pagamento</button>
         </div>
       </aside>
-    </div>
+    </Styled.HomeContainer>
   );
 };
 
