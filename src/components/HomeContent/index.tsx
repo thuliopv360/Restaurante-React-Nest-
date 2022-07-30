@@ -2,16 +2,16 @@ import * as Styled from "./styles";
 
 const HomeContent = () => {
   return (
-    <Styled.HomeContant>
+    <Styled.HomeContent>
       <Styled.HeaderContent>
         <div>
-          <h1>Resturante Fresh</h1>
+          <Styled.HeaderText>Resturante Fresh</Styled.HeaderText>
           <p>{new Date(Date.now()).toLocaleString()}</p>
         </div>
-        <div>
-          <img src="" alt="search-icon" />
+        <Styled.InputHeader>
+          <i className="bi bi-search"></i>
           <input type="text" />
-        </div>
+        </Styled.InputHeader>
       </Styled.HeaderContent>
       <section>
         <div>
@@ -36,7 +36,7 @@ const HomeContent = () => {
           <div>Card</div>
         </div>
       </section>
-    </Styled.HomeContant>
+    </Styled.HomeContent>
   );
 };
 
