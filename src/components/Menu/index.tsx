@@ -1,18 +1,31 @@
 import * as Styled from "./styles";
 import logo from "../../assets/logo_patterns/logo.png";
-import homeIcon from "../../assets/icons/home.svg";
-import logout from "../../assets/icons/logout.svg";
-import settings from "../../assets/icons/settings.svg";
+import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 
-const Menu = () => {
+interface MenuProps {
+  path: "home" | "settings";
+}
+const Menu = ({ path }: MenuProps) => {
   return (
     <Styled.MenuContainer>
       <img src={logo} alt="logo" />
-      <div>
-        <img src={homeIcon} alt="logo" />
-        <img src={settings} alt="setting" />
-      </div>
-      <img src={logout} alt="logoout" />
+      <nav>
+        <Styled.MenuItem active={path === "home"}>
+          <Styled.MenuItemButton active={path === "home"}>
+            <HomeIcon />
+          </Styled.MenuItemButton>
+        </Styled.MenuItem>
+        <Styled.MenuItem active={path === "settings"}>
+          <Styled.MenuItemButton active={path === "settings"}>
+            <SettingsIcon />
+          </Styled.MenuItemButton>
+        </Styled.MenuItem>
+      </nav>
+      <Styled.MenuItem logout>
+        <Styled.MenuItemButton>
+          <LogoutIcon />
+        </Styled.MenuItemButton>
+      </Styled.MenuItem>
     </Styled.MenuContainer>
   );
 };

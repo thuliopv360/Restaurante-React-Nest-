@@ -6,7 +6,7 @@ import * as Styled from "./styles";
 const Home = () => {
   return (
     <Styled.HomeContainer>
-      <Menu />
+      <Menu path="home" />
       <HomeContent />
       {/* <div className="home-content">
         <header>
