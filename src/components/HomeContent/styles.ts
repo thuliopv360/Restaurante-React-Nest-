@@ -12,8 +12,10 @@ export const HomeContent = styled.div`
   background-color: #393c49;
 `;
 
-export const HeaderText = styled.h1`
-  font-family: "Big Shoulders Inline Display";
+export const TitleContainer = styled.div`
+  h1 {
+    font-family: "Big Shoulders Inline Display";
+  }
 `;
 
 export const HeaderParagraph = styled.p`
@@ -21,13 +23,24 @@ export const HeaderParagraph = styled.p`
 `;
 
 export const InputHeader = styled.div`
-  background-color: #e0ffca47;
-  padding: 1.3rem;
+  width: 173px;
+  height: 48px;
+  background: #2d303e;
+  border: solid 1px #393c49;
+  border-radius: 8px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  gap: 10px;
 
   input {
-    width: 150px;
-    height: 20px;
+    background: #2d303e;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    font-size: 14px;
+    :focus {
+      outline: none;
+    }
   }
 `;

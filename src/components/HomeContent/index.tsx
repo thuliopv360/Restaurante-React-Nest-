@@ -1,16 +1,21 @@
+import { DateTime } from "luxon";
+import { SearchIcon } from "../../assets/icons";
 import * as Styled from "./styles";
 
 const HomeContent = () => {
+  const actualDate = DateTime.now();
+  const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+
   return (
     <Styled.HomeContent>
       <Styled.HeaderContent>
-        <div>
-          <Styled.HeaderText>Resturante Fresh</Styled.HeaderText>
-          <p>{new Date(Date.now()).toLocaleString()}</p>
-        </div>
+        <Styled.TitleContainer>
+          <h1>Resturante Fresh</h1>
+          <p>{formatedDate}</p>
+        </Styled.TitleContainer>
         <Styled.InputHeader>
-          <i className="bi bi-search"></i>
-          <input type="text" />
+          <SearchIcon />
+          <input type="text" placeholder="Procure prato " />
         </Styled.InputHeader>
       </Styled.HeaderContent>
       <section>

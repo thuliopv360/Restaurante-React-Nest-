@@ -1,3 +1,4 @@
+import { SearchIcon } from "../../assets/icons";
 import HomeContent from "../../components/HomeContent";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
