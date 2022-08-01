@@ -19,15 +19,28 @@ const HomeContent = () => {
         </Styled.InputHeader>
       </Styled.HeaderContent>
       <section>
-        <div>
-          <p>Pratos</p>
-        </div>
-        <div>
+        <Styled.CategoriesNavigationBar>
+          <Styled.CategoriesNavigationButton active>
+            Pratos
+          </Styled.CategoriesNavigationButton>
+          <Styled.CategoriesNavigationButton>
+            Bebidas
+          </Styled.CategoriesNavigationButton>
+          <Styled.CategoriesNavigationButton>
+            Sobremesa
+          </Styled.CategoriesNavigationButton>
+        </Styled.CategoriesNavigationBar>
+        <Styled.ProductsHeaderContainer>
           <h2>Escolha seu prato</h2>
-          <select name="" id="">
+          <Styled.TableSelect defaultValue="">
+            <option value="" disabled>
+              Selecione a mesa
+            </option>
             <option value="1">1</option>
-          </select>
-        </div>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </Styled.TableSelect>
+        </Styled.ProductsHeaderContainer>
         <div className="list">
           <div>Card</div>
           <div>Card</div>
