@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
+import ProductsList from "../ProductList";
 import * as Styled from "./styles";
 
 const HomeContent = () => {
@@ -41,18 +42,7 @@ const HomeContent = () => {
             <option value="3">3</option>
           </Styled.TableSelect>
         </Styled.ProductsHeaderContainer>
-        <div className="list">
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-        </div>
+        {/* <ProductsList ></ProductsList> */}
       </section>
     </Styled.HomeContent>
   );
