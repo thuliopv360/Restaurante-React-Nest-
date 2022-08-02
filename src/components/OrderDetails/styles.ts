@@ -7,6 +7,11 @@ export const OrderDetailsContainer = styled.aside`
     background-color: ${theme.colors.baseBg2};
     border-radius: 16px 0 0 16px;
     padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
   `}
 `;
 
@@ -21,15 +26,46 @@ export const OrderDetailsHeader = styled.header`
     h2 {
       font-family: ${theme.constants.bodyFontFamily};
       line-height: ${theme.constants.LineHeight};
-      font-size: ${theme.constants.bodyFontSize};
+      font-size: ${theme.constants.headingFontSize};
       letter-spacing: 140%;
     }
 
     div {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      gap: 2rem;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+  `}
+`;
+
+export const OrderDetailsContainerHeader = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 3rem;
+    padding: 0.8rem 0;
+    box-sizing: border-box;
+    margin-bottom: 0%.8rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid ${theme.colors.baseLine};
+  `};
+`;
+
+export const OrderDetailsFooter = styled.footer`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 14.875rem;
+    border-top: 1px solid ${theme.colors.baseLine};
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    div {
+      display: flex;
+      justify-content: space-between;
     }
   `}
 `;

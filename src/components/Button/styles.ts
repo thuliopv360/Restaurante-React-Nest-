@@ -41,6 +41,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
       padding: 0 0.75rem;
       max-width: 7.25rem;
     `}
+
+    
     ${size === "large" &&
     css`
       width: 22.5rem;
