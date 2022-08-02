@@ -9,7 +9,7 @@ interface StyledButtonProps {
 
 export const StyledButton = styled.button<StyledButtonProps>`
   ${({ theme, variant, size }) => css`
-    width: 11px;
+    width: 11rem;
     height: 3rem;
     border-radius: 8px;
     background-color: ${theme.colors.primaryColor};
@@ -18,7 +18,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
     cursor: pointer;
     font-family: ${theme.constants.bodyFontFamily};
     font-weight: 500;
-
     ${variant === "disabled" &&
     css`
       background-color: ${theme.colors.baseBg2};
@@ -26,23 +25,19 @@ export const StyledButton = styled.button<StyledButtonProps>`
       border: 1px solid ${theme.colors.baseBg1};
       box-shadow: none;
     `}
-
     ${variant === "cancel" &&
     css`
       background-color: ${theme.colors.baseBg2};
-      color: ${theme.colors.secundaryColor};
-      border: 1px solid ${theme.colors.secundaryColor};
+      color: ${theme.colors.secondaryColor};
+      border: 1px solid ${theme.colors.secondaryColor};
       box-shadow: none;
     `}
-
     ${size === "small" &&
     css`
       height: 2.125rem;
       padding: 0 0.75rem;
-      max-width: 7.25rem;
+      width: 7.25rem;
     `}
-
-    
     ${size === "large" &&
     css`
       width: 22.5rem;

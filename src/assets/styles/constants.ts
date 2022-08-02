@@ -5,5 +5,5 @@ export const constants = {
   bodyFontSize: "14px",
   logoFontSize: "28px",
   headingFontSize: "28px",
-  LineHeight: "140%",
+  lineHeight: "140%",
 };

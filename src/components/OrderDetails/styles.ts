@@ -22,14 +22,12 @@ export const OrderDetailsHeader = styled.header`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
     h2 {
       font-family: ${theme.constants.bodyFontFamily};
-      line-height: ${theme.constants.LineHeight};
+      line-height: ${theme.constants.lineHeight};
       font-size: ${theme.constants.headingFontSize};
       letter-spacing: 140%;
     }
-
     div {
       display: flex;
       align-items: center;
@@ -39,30 +37,38 @@ export const OrderDetailsHeader = styled.header`
   `}
 `;
 
-export const OrderDetailsContainerHeader = styled.div`
+export const CheckoutDetailsContainer = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  `}
+`;
+
+export const CheckoutDetailsHeader = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 3rem;
     padding: 0.8rem 0;
     box-sizing: border-box;
-    margin-bottom: 0%.8rem;
+    margin-bottom: 0.8rem;
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid ${theme.colors.baseLine};
-  `};
+  `}
 `;
 
 export const OrderDetailsFooter = styled.footer`
   ${({ theme }) => css`
-    width: 100%;
+    width: 22.875rem;
     height: 14.875rem;
     border-top: 1px solid ${theme.colors.baseLine};
     position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-
+    justify-content: space-evenly;
     div {
       display: flex;
       justify-content: space-between;
