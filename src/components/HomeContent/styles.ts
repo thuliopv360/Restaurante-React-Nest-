@@ -13,7 +13,7 @@ export const HeaderContent = styled.header`
 `;
 
 export const HomeContent = styled.div`
-  background-color: #393c49;
+  background-color: #252836;
   section {
     width: 90%;
     text-align: center;

@@ -13,7 +13,9 @@ const HomeContent = () => {
     mockedCategories[0]
   );
 
-  const filteredProducts: Product[] = mockedProducts.filter((element) => {});
+  const filteredProducts: Product[] = mockedProducts.filter(
+    (element) => element.categoryId === selectedCategory.id
+  );
 
   const handleChangeCategory = (category: Category) => {
     setSelectedCategory(category);
@@ -55,7 +57,7 @@ const HomeContent = () => {
             <option value="3">3</option>
           </Styled.TableSelect>
         </Styled.ProductsHeaderContainer>
-        <ProductsList list={mockedProducts} />
+        <ProductsList list={filteredProducts} />
       </section>
     </Styled.HomeContent>
   );
