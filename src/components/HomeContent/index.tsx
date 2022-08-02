@@ -2,10 +2,22 @@ import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
 import ProductsList from "../ProductList";
 import * as Styled from "./styles";
+import { mockedCategories, mockedProducts } from "../../mocks";
+import { useState } from "react";
+import { Category, Product } from "../../types";
 
 const HomeContent = () => {
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+  const [selectedCategory, setSelectedCategory] = useState<Category>(
+    mockedCategories[0]
+  );
+
+  const filteredProducts: Product[] = mockedProducts.filter((element) => {});
+
+  const handleChangeCategory = (category: Category) => {
+    setSelectedCategory(category);
+  };
 
   return (
     <Styled.HomeContent>
@@ -21,15 +33,16 @@ const HomeContent = () => {
       </Styled.HeaderContent>
       <section>
         <Styled.CategoriesNavigationBar>
-          <Styled.CategoriesNavigationButton active>
-            Pratos
-          </Styled.CategoriesNavigationButton>
-          <Styled.CategoriesNavigationButton>
-            Bebidas
-          </Styled.CategoriesNavigationButton>
-          <Styled.CategoriesNavigationButton>
-            Sobremesa
-          </Styled.CategoriesNavigationButton>
+          {mockedCategories.map((element) => {
+            return (
+              <Styled.CategoriesNavigationButton
+                active={element.name === selectedCategory.name}
+                onClick={() => handleChangeCategory(element)}
+              >
+                {element.name}
+              </Styled.CategoriesNavigationButton>
+            );
+          })}
         </Styled.CategoriesNavigationBar>
         <Styled.ProductsHeaderContainer>
           <h2>Escolha seu prato</h2>
@@ -42,7 +55,7 @@ const HomeContent = () => {
             <option value="3">3</option>
           </Styled.TableSelect>
         </Styled.ProductsHeaderContainer>
-        {/* <ProductsList ></ProductsList> */}
+        <ProductsList list={mockedProducts} />
       </section>
     </Styled.HomeContent>
   );
