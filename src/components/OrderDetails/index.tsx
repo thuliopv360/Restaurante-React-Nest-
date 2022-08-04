@@ -1,4 +1,6 @@
+import { mockedProducts } from "../../mocks";
 import Button from "../Button";
+import CheckoutCard from "../CheckoutCard";
 import * as Styled from "./styles";
 
 const OrderDetails = () => {
@@ -24,15 +26,16 @@ const OrderDetails = () => {
       </Styled.OrderDetailsHeader>
       <Styled.CheckoutDetailsContainer>
         <Styled.CheckoutDetailsHeader>
-          <h3>Item</h3>
-          <h3>Qtd</h3>
+          <div>
+            <h3>Item</h3>
+            <h3>Qtd</h3>
+          </div>
           <h3>Preço</h3>
         </Styled.CheckoutDetailsHeader>
-        <div className="checkout-cards-container">
-          <div>Card checkout</div> {/* Dado mockado */}
-          <div>Card checkout</div> {/* Dado mockado */}
-          <div>Card checkout</div> {/* Dado mockado */}
-        </div>
+        <Styled.CheckoutCardsContainer>
+          <CheckoutCard product={mockedProducts[0]} />
+          <CheckoutCard product={mockedProducts[1]} />
+        </Styled.CheckoutCardsContainer>
       </Styled.CheckoutDetailsContainer>
       <Styled.OrderDetailsFooter>
         <div>
