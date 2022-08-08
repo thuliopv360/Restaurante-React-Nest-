@@ -1,14 +1,17 @@
-import { SearchIcon } from "../../assets/icons";
+import { Dispatch, SetStateAction } from "react";
 import HomeContent from "../../components/HomeContent";
 import Menu from "../../components/Menu";
 import OrderDetails from "../../components/OrderDetails";
 import * as Styled from "./styles";
-//import HomeContainer from "./styles"
 
-const Home = () => {
+interface HomeProps {
+  setLogged: Dispatch<SetStateAction<boolean>>;
+}
+
+const Home = ({ setLogged }: HomeProps) => {
   return (
     <Styled.HomeContainer>
-      <Menu path="home" />
+      <Menu path="home" setLogged={setLogged} />
       <HomeContent />
       <OrderDetails />
     </Styled.HomeContainer>
