@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { mockedProducts } from "../../mocks";
 import Button from "../Button";
 import CheckoutCard from "../CheckoutCard";
@@ -48,8 +49,8 @@ const OrderDetails = () => {
         </div>
         <Button
           text="Continue para o pagamento"
-          onClick={() => {}}
-          size="large"
+          onClick={() => toast.error("Sessão em desenvolvimento!")}
+          size="x-large"
         />
       </Styled.OrderDetailsFooter>
     </Styled.OrderDetailsContainer>
