@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import logo from "../../assets/logo_patterns/logo.png";
+import Logo from "../../assets/logo_patterns/Logo.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 import { useNavigate } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
@@ -19,7 +19,7 @@ const Menu = ({ path, setLogged }: MenuProps) => {
 
   return (
     <Styled.MenuContainer>
-      <img src={logo} alt="logo" />
+      <img src={Logo} alt="Logo" />
       <nav>
         <Styled.MenuItem active={path === "home"}>
           <Styled.MenuItemButton active={path === "home"}>
