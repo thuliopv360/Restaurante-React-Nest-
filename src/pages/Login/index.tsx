@@ -4,8 +4,8 @@ import Button from "../../components/Button";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import Logo from "../../assets/logo_patterns/Logo.png";
 import { mockedUsers } from "../../mocks";
+import Logo from "../../assets/logo_patterns/Logo.png";
 
 interface LoginProps {
   setLogged: Dispatch<SetStateAction<boolean>>;
