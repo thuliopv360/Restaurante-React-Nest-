@@ -18,25 +18,28 @@ const Login = ({ setLogged }: LoginProps) => {
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = () => {
-    if (
-      email === mockedUsers[0].email &&
-      password === mockedUsers[0].password
-    ) {
+    // if (
+    //   email === mockedUsers[0].email &&
+    //   password === mockedUsers[0].password
+    // ) {
+    //   setLogged(true);
+    //   navigate("/");
+    //   toast.success("Login bem sucedido!");
+    //   return;
+    // }
+    // else
+    if (email === "admin" && password === "admin") {
       setLogged(true);
       navigate("/");
       toast.success("Login bem sucedido!");
-      return;
-    } else if (email === "admin" && password === "admin") {
-      setLogged(true);
-      navigate("/");
-      toast.success("Login bem sucedido!");
-      return;
-    } else if (email === "Thulio@gmail.com" && password === "123@bc") {
-      setLogged(true);
-      navigate("/admin");
-      toast.success("Pagina de admin");
       return;
     }
+    //else if (email === "Thulio@gmail.com" && password === "123@bc") {
+    //   setLogged(true);
+    //   navigate("/admin");
+    //   toast.success("Pagina de admin");
+    //   return;
+    // }
     toast.error("Usuário ou senha incorretos.");
   };
 
