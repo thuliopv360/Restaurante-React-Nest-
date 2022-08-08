@@ -1,7 +1,9 @@
+import { Product } from "../../types";
+import * as Styled from "./styles";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Product } from "../../types";
-import * as Style from "./styles";
+import { TrashIcon } from "../../assets/icons";
+import Input from "../Input";
 
 interface CheckoutCardProps {
   product: Product;
@@ -11,14 +13,14 @@ const CheckoutCard = ({ product }: CheckoutCardProps) => {
   const [quantity, setQuantity] = useState<number>(0);
   const [description, setDescription] = useState<string>("");
   return (
-    <Style.CheckoutCardContainer>
-      <Style.CheckoutCardHeader>
+    <Styled.CheckoutCardContainer>
+      <Styled.CheckoutCardHeader>
         <img src={product.image} alt={product.name} />
         <div>
-          <h5>{product.name}</h5>
+          <h5 title={product.name}>{product.name}</h5>
           <p>R${product.price}</p>
         </div>
-        <Style.ProductQuantityInput
+        <Styled.ProductQuantityInput
           type="number"
           min="1"
           max="100"
@@ -26,18 +28,23 @@ const CheckoutCard = ({ product }: CheckoutCardProps) => {
           onChange={(e) => setQuantity(Number(e.target.value))}
         />
         <span>R${(quantity * product.price).toFixed(2)}</span>
-      </Style.CheckoutCardHeader>
-      <div>
-        <input
-          type="text"
+      </Styled.CheckoutCardHeader>
+      <Styled.CheckoutCardFooter>
+        {/* <input
+        /> */}
+        <Input
+          inputSize="large"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          placeholder="Detalhes do produto"
         />
-        <button onClick={() => toast.error("Sessao em desenvolvimento")}>
-          Oi
-        </button>
-      </div>
-    </Style.CheckoutCardContainer>
+        <Styled.RemoveProductButton
+          onClick={() => toast.error("Sessão em desenvolvimento!")}
+        >
+          <TrashIcon />
+        </Styled.RemoveProductButton>
+      </Styled.CheckoutCardFooter>
+    </Styled.CheckoutCardContainer>
   );
 };
 
