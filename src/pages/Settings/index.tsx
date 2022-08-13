@@ -1,19 +1,18 @@
-import { Dispatch, SetStateAction } from "react";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import { mockedProducts } from "../../mocks";
 import SettingsProductCard from "../../components/SettingsProductCard";
 import Button from "../../components/Button";
+import { useState } from "react";
+import ProductModal from "../../components/ProductModal";
 
-interface SettingsProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
-}
+const Settings = () => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
-const Settings = ({ setLogged }: SettingsProps) => {
   return (
     <Styled.SettingsContainer>
-      <Menu path="settings" setLogged={setLogged} />
+      <Menu path="settings" />
       <Styled.SettingsNavigationContainer>
         <h2>Configurações</h2>
         <Styled.SettingsNavigationButtonsList>
@@ -74,6 +73,7 @@ const Settings = ({ setLogged }: SettingsProps) => {
           <Button text="Salvar mudanças" />
         </Styled.ConfirmationContainer>
       </Styled.EntitiesEditContainer>
+      {openModal && <ProductModal />}
     </Styled.SettingsContainer>
   );
 };
