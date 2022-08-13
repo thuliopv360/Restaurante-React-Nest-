@@ -40,6 +40,7 @@ const HomeContent = () => {
               <Styled.CategoriesNavigationButton
                 active={element.name === selectedCategory.name}
                 onClick={() => handleChangeCategory(element)}
+                key={element.id}
               >
                 {element.name}
               </Styled.CategoriesNavigationButton>

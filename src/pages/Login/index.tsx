@@ -1,69 +1,70 @@
-import Input from "../../components/Input";
 import * as Styled from "./styles";
-import Button from "../../components/Button";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-hot-toast";
 import Logo from "../../assets/logo_patterns/logo.png";
-import axios from "axios";
+import Button from "../../components/Button";
+import { toast } from "react-hot-toast";
+import { api } from "../../services";
+import { useAuth } from "../../contexts/auth";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { StyledInput } from "../../components/Input/styles";
 
-interface LoginProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
+interface LoginData {
+  email: string;
+  password: string;
 }
 
-const Login = ({ setLogged }: LoginProps) => {
-  const navigate = useNavigate();
+const loginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("O formato de e-mail esta invlido")
+    .required("campoo de e-mail obrigatorio"),
+  password: yup
+    .string()
+    .min(8, "Senha deve ter no minimo 8 caracteres")
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      "Sua senha deve ter no minimo um caracter especial, um número e uma letra maiúscula"
+    ),
+});
 
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+const Login = () => {
+  const { login } = useAuth();
 
-  const handleLogin = () => {
-    if (email !== "" && password !== "") {
-      const data = {
-        email,
-        password,
-      };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
-      axios
-        .post(
-          "https://api-restaurante-production.up.railway.app/auth/login",
-          data
-        )
-        .then((res) => {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-          setLogged(true);
-          navigate("/");
-          toast.success("Login bem sucedido! teste");
-        })
-        .catch(() => {
-          toast.error("Login Invalido!");
-        });
-
-      return;
-    }
-    toast.error("Preencha os campos do Login!");
+  const handleLogin = (data: LoginData) => {
+    api
+      .post("/auth/login", data)
+      .then((res) => {
+        login({ token: res.data.token, user: res.data.user });
+      })
+      .catch(() => {
+        toast.error("Usuário ou senha Invalido!");
+      });
   };
 
   return (
     <Styled.LoginPageContainer>
-      <Styled.LoginFormContainer>
+      <Styled.LoginFormContainer onSubmit={handleSubmit(handleLogin)}>
         <Styled.LoginLogoContainer>
           <h1>Restaurante Fresh</h1>
           <img alt="logo" src={Logo} />
         </Styled.LoginLogoContainer>
-        <Input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <Input
+        <StyledInput placeholder="Email" {...register("email")} />
+        <StyledInput
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
           placeholder="Senha"
+          {...register("password")}
         />
-        <Button text="Entrar" size="large" onClick={handleLogin} />
+        <Button text="Entrar" size="large" type="submit" />
+        <Styled.ErrorMessage>
+          {errors.email?.message || errors.password?.message}
+        </Styled.ErrorMessage>
       </Styled.LoginFormContainer>
     </Styled.LoginPageContainer>
   );
