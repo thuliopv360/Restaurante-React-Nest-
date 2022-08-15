@@ -17,15 +17,16 @@ interface LoginData {
 const loginSchema = yup.object().shape({
   email: yup
     .string()
-    .email("O formato de e-mail esta invlido")
-    .required("campoo de e-mail obrigatorio"),
+    .email("O formato de e-mail esta invalido")
+    .required("campoo de e-mail obrigatorio!"),
   password: yup
     .string()
     .min(8, "Senha deve ter no minimo 8 caracteres")
     .matches(
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
       "Sua senha deve ter no minimo um caracter especial, um número e uma letra maiúscula"
-    ),
+    )
+    .required("Campo de senha obrigatorio!"),
 });
 
 const Login = () => {

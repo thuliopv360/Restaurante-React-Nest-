@@ -5,8 +5,8 @@ import {
   useState,
   useEffect,
 } from "react";
-import { api } from "../../services";
 import { Product } from "../../types";
+import { api } from "../../services";
 import { useAuth } from "../auth";
 
 interface ProductsProviderProps {
@@ -24,6 +24,7 @@ const ProductsContext = createContext<ProductsProviderData>(
 
 export const ProductsProvider = ({ children }: ProductsProviderProps) => {
   const { logged } = useAuth();
+
   const [products, setProducts] = useState<Product[]>([]);
 
   const handleGetProducts = () => {
@@ -34,7 +35,10 @@ export const ProductsProvider = ({ children }: ProductsProviderProps) => {
         Authorization: `Bearer ${token}`,
       },
     };
-    api.get("/products", headers).then((res) => setProducts(res.data));
+
+    api.get("/products", headers).then((res) => {
+      setProducts(res.data);
+    });
   };
 
   useEffect(() => {

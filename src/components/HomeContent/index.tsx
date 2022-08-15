@@ -5,15 +5,18 @@ import * as Styled from "./styles";
 import { mockedCategories, mockedProducts } from "../../mocks";
 import { useState } from "react";
 import { Category, Product } from "../../types";
+import { useProducts } from "../../contexts/products";
 
 const HomeContent = () => {
+  const { products } = useProducts();
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+
   const [selectedCategory, setSelectedCategory] = useState<Category>(
     mockedCategories[0]
   );
 
-  const filteredProducts: Product[] = mockedProducts.filter(
+  const filteredProducts: Product[] = products.filter(
     (element) => element.categoryId === selectedCategory.id
   );
 
