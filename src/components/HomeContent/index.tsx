@@ -2,22 +2,23 @@ import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
 import ProductsList from "../ProductList";
 import * as Styled from "./styles";
-import { mockedCategories, mockedProducts } from "../../mocks";
 import { useState } from "react";
 import { Category, Product } from "../../types";
 import { useProducts } from "../../contexts/products";
+import { useCategories } from "../../contexts/categories";
 
 const HomeContent = () => {
+  const { categories } = useCategories();
   const { products } = useProducts();
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
 
   const [selectedCategory, setSelectedCategory] = useState<Category>(
-    mockedCategories[0]
+    categories[0] || ({} as Category)
   );
 
   const filteredProducts: Product[] = products.filter(
-    (element) => element.categoryId === selectedCategory.id
+    (element) => selectedCategory && element.categoryId === selectedCategory.id
   );
 
   const handleChangeCategory = (category: Category) => {
@@ -38,17 +39,18 @@ const HomeContent = () => {
       </Styled.HeaderContent>
       <section>
         <Styled.CategoriesNavigationBar>
-          {mockedCategories.map((element) => {
-            return (
-              <Styled.CategoriesNavigationButton
-                active={element.name === selectedCategory.name}
-                onClick={() => handleChangeCategory(element)}
-                key={element.id}
-              >
-                {element.name}
-              </Styled.CategoriesNavigationButton>
-            );
-          })}
+          {categories.length > 0 &&
+            categories.map((element) => {
+              return (
+                <Styled.CategoriesNavigationButton
+                  active={element.name === selectedCategory.name}
+                  onClick={() => handleChangeCategory(element)}
+                  key={element.id}
+                >
+                  {element.name}
+                </Styled.CategoriesNavigationButton>
+              );
+            })}
         </Styled.CategoriesNavigationBar>
         <Styled.ProductsHeaderContainer>
           <h2>Escolha seu prato</h2>
