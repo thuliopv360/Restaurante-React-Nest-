@@ -1,5 +1,5 @@
-import { ModalOverlay, StyledInput } from "../../assets/styles/globalStyles";
 import Button from "../Button";
+import { ModalOverlay, StyledInput } from "../../assets/styles/globalStyles";
 import { ModalContainer } from "./styles";
 
 interface CategoryModalProps {

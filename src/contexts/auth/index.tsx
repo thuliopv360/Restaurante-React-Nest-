@@ -56,10 +56,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     };
     api
       .get(`/users/${user.id}`, headers)
-      .then((res) => {
-        return;
+      .then(() => {
+        setLogged(true);
+        navigate("/");
       })
-      .catch((err) => {
+      .catch(() => {
         logout();
         toast.success("Necessita fazer o login novamente");
       });
