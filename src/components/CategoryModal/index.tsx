@@ -11,9 +11,11 @@ import * as yup from "yup";
 import { api } from "../../services";
 import toast from "react-hot-toast";
 import { useCategories } from "../../contexts/categories";
+import { Category } from "../../types";
 
 interface CategoryModalProps {
   handleOpenModal: () => void;
+  category: Category | undefined;
 }
 
 interface NewCategoryData {
@@ -28,7 +30,7 @@ const updateCategorySchema = yup.object().shape({
   name: yup.string().required("Obrigadorio imformar nome das categorias"),
 });
 
-const CategoryModal = ({ handleOpenModal }: CategoryModalProps) => {
+const CategoryModal = ({ handleOpenModal, category }: CategoryModalProps) => {
   const { handleGetCategories } = useCategories();
 
   const {
