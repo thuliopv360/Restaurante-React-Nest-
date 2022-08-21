@@ -85,7 +85,11 @@ const CategoryModal = ({
         )}
       >
         <h2>{category ? "Editar categoria" : "Criar nova categoria"}</h2>
-        <StyledInput placeholder="Nome da categoria" {...register("name")} />
+        <StyledInput
+          placeholder="Nome da categoria"
+          {...register("name")}
+          defaultValue={category ? category.name : ""}
+        />
         <div>
           <Button
             text="Cancelar"
