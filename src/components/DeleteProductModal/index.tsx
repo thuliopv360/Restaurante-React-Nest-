@@ -48,9 +48,12 @@ const DeleteProductModal = ({
               handleOpenDeleteModal();
             }}
             text="Cancelar"
+          />
+          <Button
+            text="Excluir"
+            onClick={handleDeleteProduct}
             variant="cancel"
           />
-          <Button text="Excluir" onClick={handleDeleteProduct} />
         </div>
       </DeleteModalContainer>
     </ModalOverlay>

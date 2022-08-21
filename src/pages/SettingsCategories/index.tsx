@@ -4,6 +4,7 @@ import CategoryModal from "../../components/CategoryModal";
 import Menu from "../../components/Menu";
 import SettingsMenu from "../../components/SettingsMenu";
 import { useCategories } from "../../contexts/categories";
+import { Category } from "../../types";
 import * as Styled from "./styles";
 
 const SettingsCategories = () => {
@@ -11,7 +12,14 @@ const SettingsCategories = () => {
 
   const [openModal, setOpenModal] = useState<boolean>(false);
 
+  const [category, setCategory] = useState<Category | undefined>(undefined);
+
   const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
+
+  const handleOpenUpdateModal = (category: Category) => {
+    setCategory(category);
     setOpenModal(!openModal);
   };
 
@@ -34,7 +42,9 @@ const SettingsCategories = () => {
                   <Styled.SettingsCategoryDeleteButton>
                     <TrashIcon /> Remover
                   </Styled.SettingsCategoryDeleteButton>
-                  <Styled.SettingsCategoryEditButton>
+                  <Styled.SettingsCategoryEditButton
+                    onClick={() => handleOpenUpdateModal(element)}
+                  >
                     <EditIcon /> Editar
                   </Styled.SettingsCategoryEditButton>
                 </div>
@@ -43,7 +53,13 @@ const SettingsCategories = () => {
           })}
         </Styled.EntitiesEditList>
       </Styled.EntitiesEditContainer>
-      {openModal && <CategoryModal handleOpenModal={handleOpenModal} />}
+      {openModal && (
+        <CategoryModal
+          setCategory={setCategory}
+          category={category}
+          handleOpenModal={handleOpenModal}
+        />
+      )}
     </Styled.SettingsContainer>
   );
 };

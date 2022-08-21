@@ -12,44 +12,46 @@ import { api } from "../../services";
 import toast from "react-hot-toast";
 import { useCategories } from "../../contexts/categories";
 import { Category } from "../../types";
+import { Dispatch, SetStateAction } from "react";
 
 interface CategoryModalProps {
   handleOpenModal: () => void;
-  category: Category | undefined;
+  category?: Category;
+  setCategory: Dispatch<SetStateAction<Category | undefined>>;
 }
 
-interface NewCategoryData {
+interface CategoryData {
   name: string;
 }
 
-const newCategorySchema = yup.object().shape({
+const CategorySchema = yup.object().shape({
   name: yup.string().required("Obrigadorio imformar nome das categorias"),
 });
 
-const updateCategorySchema = yup.object().shape({
-  name: yup.string().required("Obrigadorio imformar nome das categorias"),
-});
-
-const CategoryModal = ({ handleOpenModal, category }: CategoryModalProps) => {
+const CategoryModal = ({
+  handleOpenModal,
+  category,
+  setCategory,
+}: CategoryModalProps) => {
   const { handleGetCategories } = useCategories();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<NewCategoryData>({
-    resolver: yupResolver(newCategorySchema),
+  } = useForm<CategoryData>({
+    resolver: yupResolver(CategorySchema),
   });
 
-  const handleNewCategory = (data: NewCategoryData) => {
-    const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
-    const headers = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
+  const headers = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
+  const handleNewCategory = (data: CategoryData) => {
     api
       .post("/categories", data, headers)
       .then(() => {
@@ -62,19 +64,43 @@ const CategoryModal = ({ handleOpenModal, category }: CategoryModalProps) => {
       });
   };
 
+  const handleUpdateCategory = (data: CategoryData) => {
+    api
+      .patch(`/categories/${category?.id}`, data, headers)
+      .then(() => {
+        toast.success("Categoria editada com sucesso");
+        handleGetCategories();
+        handleOpenModal();
+      })
+      .catch(() => {
+        toast.error("Erro na hora de criar categoria");
+      });
+  };
+
   return (
     <ModalOverlay>
-      <ModalContainer onSubmit={handleSubmit(handleNewCategory)}>
-        <h2>Criar nova categoria</h2>
+      <ModalContainer
+        onSubmit={handleSubmit(
+          category ? handleUpdateCategory : handleNewCategory
+        )}
+      >
+        <h2>{category ? "Editar categoria" : "Criar nova categoria"}</h2>
         <StyledInput placeholder="Nome da categoria" {...register("name")} />
         <div>
           <Button
             text="Cancelar"
             variant="cancel"
-            onClick={handleOpenModal}
+            onClick={() => {
+              setCategory(undefined);
+              handleOpenModal();
+            }}
             size="small"
           />
-          <Button text="Enviar" type="submit" size="small" />
+          <Button
+            text={category ? "Editar" : "Enviar"}
+            type="submit"
+            size="small"
+          />
         </div>
         <ErrorMessage>{errors.name?.message}</ErrorMessage>
       </ModalContainer>
