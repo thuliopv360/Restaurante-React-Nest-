@@ -71,8 +71,7 @@ export const EntityCard = styled.div`
       display: flex;
       width: 100%;
     }
-
-    h2 {
+    p {
       margin-top: 2rem;
     }
   `}
