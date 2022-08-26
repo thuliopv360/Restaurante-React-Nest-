@@ -192,7 +192,7 @@ export const mockedTables: T.Table[] = [
 
 export const mockedUsers: T.User[] = [
   {
-    id: "6d6cf9d2-cf94-4b90-a53b-973d92501e02",
+    id: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
     name: "Ivan Borba",
     email: "ivan@blue.com",
     password: "7ccbf779f22b9579f80ba3afebcb0e7e",
@@ -210,24 +210,30 @@ export const mockedUsers: T.User[] = [
 
 export const mockedFavorites: T.Favorite[] = [
   {
-    id: "35abf7f1-c999-4bcf-abfb-a95cb483a2b9",
-    productName: "Burguer Salada e Queijo Especial",
-    userId: "6d6cf9d2-cf94-4b90-a53b-973d92501e02",
+    id: "bbf4cd1e-7daa-4a82-8909-be09e91df60c",
+    productName: "Lazanha",
+    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
     favoritedAt: new Date(),
   },
   {
-    id: "9a5a8f0e-43aa-4d77-8afd-e3a95deddc81",
-    productName: "Burguer Duplo Bacon e Cheddar",
-    userId: "6d6cf9d2-cf94-4b90-a53b-973d92501e02",
+    id: "91e674e6-84a0-4e8a-b5f1-5932dfc76bf4",
+    productName: "Suco da casa Laranja",
+    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
     favoritedAt: new Date(),
   },
+  {
+    id: "39ab4464-1496-4ced-a4c0-e9dda74c7fa8",
+    productName: "Pudim de chocolate da casa",
+    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
+    favoritedAt: new Date(),
+  }
 ];
 
 export const mockedOrders: T.Order[] = [
   {
     id: "e45555e4-8933-420b-bedb-9814c9a8374d",
     tableNumber: 1,
-    userId: "6d6cf9d2-cf94-4b90-a53b-973d92501e02",
+    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
     createdAt: new Date(),
   },
 ];

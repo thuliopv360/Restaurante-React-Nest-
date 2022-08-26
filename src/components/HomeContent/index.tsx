@@ -2,28 +2,61 @@ import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
 import ProductsList from "../ProductList";
 import * as Styled from "./styles";
-import { useState } from "react";
-import { Category, Product } from "../../types";
+import { useEffect, useState } from "react";
+import { Category, Favorite, Product, User } from "../../types";
 import { useProducts } from "../../contexts/products";
 import { useCategories } from "../../contexts/categories";
+import { api } from "../../services";
+
 
 const HomeContent = () => {
-  const { categories } = useCategories();
-  const { products } = useProducts();
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+
+  const { categories } = useCategories();
+  const { products } = useProducts();
 
   const [selectedCategory, setSelectedCategory] = useState<Category>(
     categories[0] || ({} as Category)
   );
 
+  const [isFavoritesList,setIsFavoritesList] = useState<boolean>(false)
+  const [userFavoritesList, setUserFavoritesList] = useState<Product[]>([])
+
   const filteredProducts: Product[] = products.filter(
     (element) => selectedCategory && element.categoryId === selectedCategory.id
   );
 
-  const handleChangeCategory = (category: Category) => {
-    setSelectedCategory(category);
-  };
+  const handleGetFavorites = async () => {
+    const token = localStorage.getItem("token");
+
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const user: User = JSON.parse(localStorage.getItem("user") || "");
+    //todas as vezes que usar o json parse no typescript tem que colocar o :
+    // || ""
+
+    const res = await api.get<Favorite[]>(`/favorites/user/${user?.id}`, headers);
+
+    const favorites = res.data
+
+    const favoritesNames: string[] = favorites.map((elememt) => elememt.productName);
+
+    const favoritesList: Product[] = products.filter((elem) => {
+      return favoritesNames.includes(elem.name);
+    })
+
+    setUserFavoritesList(favoritesList);
+     
+  }
+
+  useEffect(() => {
+    handleGetFavorites();
+  },[products] )
 
   return (
     <Styled.HomeContent>
@@ -44,13 +77,26 @@ const HomeContent = () => {
               return (
                 <Styled.CategoriesNavigationButton
                   active={element.name === selectedCategory.name}
-                  onClick={() => handleChangeCategory(element)}
+                  onClick={() => {
+                    setSelectedCategory(element); 
+                    setIsFavoritesList(false);
+                  }}
+
                   key={element.id}
                 >
                   {element.name}
                 </Styled.CategoriesNavigationButton>
               );
             })}
+            <Styled.CategoriesNavigationButton
+                  active={isFavoritesList}
+                  onClick={() => {
+                    setIsFavoritesList(true);
+                    setSelectedCategory({} as Category);
+                  }}
+                >
+                  Favoritos
+                </Styled.CategoriesNavigationButton>
         </Styled.CategoriesNavigationBar>
         <Styled.ProductsHeaderContainer>
           <h2>Escolha seu prato</h2>
@@ -63,7 +109,7 @@ const HomeContent = () => {
             <option value="3">3</option>
           </Styled.TableSelect>
         </Styled.ProductsHeaderContainer>
-        <ProductsList list={filteredProducts} />
+        <ProductsList list={isFavoritesList ? userFavoritesList :filteredProducts} />
       </section>
     </Styled.HomeContent>
   );
