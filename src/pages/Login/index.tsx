@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledInput } from "../../components/Input/styles";
+import { useNavigate } from "react-router-dom";
 
 interface LoginData {
   email: string;
@@ -30,6 +31,7 @@ const loginSchema = yup.object().shape({
 });
 
 const Login = () => {
+  const navigate = useNavigate();
   const { login } = useAuth();
 
   const {
@@ -62,7 +64,10 @@ const Login = () => {
           placeholder="Senha"
           {...register("password")}
         />
-        <Button text="Entrar" size="large" type="submit" />
+        <div>
+          <Button text="Entrar" size="large" type="submit" />
+          <Button text="Cadastrar" size="large" type="submit" onClick={() => navigate("/register")}/>
+        </div>
         <Styled.ErrorMessage>
           {errors.email?.message || errors.password?.message}
         </Styled.ErrorMessage>

@@ -109,7 +109,12 @@ const HomeContent = () => {
             <option value="3">3</option>
           </Styled.TableSelect>
         </Styled.ProductsHeaderContainer>
-        <ProductsList list={isFavoritesList ? userFavoritesList :filteredProducts} />
+        <ProductsList 
+          userFavoritesList={userFavoritesList}
+          isFavoritesList={isFavoritesList} 
+          handleGetFavorites={handleGetFavorites}
+          list={isFavoritesList ? userFavoritesList :filteredProducts} 
+        />
       </section>
     </Styled.HomeContent>
   );

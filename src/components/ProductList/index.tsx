@@ -4,13 +4,19 @@ import * as Styled from "./styles";
 
 interface ProductsListProps {
   list: Product[];
+  isFavoritesList: boolean;
+  handleGetFavorites: () => void ;
+  userFavoritesList: Product[];
 }
 
-const ProductsList = ({ list }: ProductsListProps) => {
+const ProductsList = ({ list, isFavoritesList, handleGetFavorites, userFavoritesList }: ProductsListProps) => {
   return (
     <Styled.ProductsListContainer>
       {list.map((element) => (
-        <ProductCard product={element} key={element.id} />
+        <ProductCard 
+        product={element} 
+        isFavoritesList={isFavoritesList} 
+        handleGetFavorites={handleGetFavorites} key={element.id} />
       ))}
     </Styled.ProductsListContainer>
   );
