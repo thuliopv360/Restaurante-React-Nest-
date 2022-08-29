@@ -165,11 +165,7 @@ const ProductModal = ({
             text="Cancelar"
             variant="cancel"
           />
-          <Button
-            size="small"
-            text={product ? "Editar" : "Enviar"}
-            type="submit"
-          />
+          <Button size="small" text="Enviar" type="submit" />
         </div>
       </Styled.ModalContainer>
     </ModalOverlay>

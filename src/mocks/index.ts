@@ -226,7 +226,7 @@ export const mockedFavorites: T.Favorite[] = [
     productName: "Pudim de chocolate da casa",
     userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
     favoritedAt: new Date(),
-  }
+  },
 ];
 
 export const mockedOrders: T.Order[] = [

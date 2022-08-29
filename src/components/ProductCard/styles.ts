@@ -22,12 +22,33 @@ export const CardContainer = styled.div<CardContainerProps>`
 
     img {
       width: 8rem;
+      height: 5rem;
       position: absolute;
       top: -3.3rem;
+      border-radius: 1.6rem;
     }
 
-    p{
-      margin-bottom: 1rem;
+    button {
+      margin: 3rem 0 0 0;
+      font-weight: 700;
+      transition: all 0.5s;
+      color: black;
+    }
+
+    button:hover {
+      transform: scale(1.4);
+    }
+
+    p {
+      margin: 1rem 0.7rem 0 0.7rem;
+      text-align: start;
+    }
+
+    p#margin {
+      margin: 1rem 0 0 8rem;
+      color: #f46a75;
+      font-weight: 800;
+      font-size: 1.5rem;
     }
   `}
 `;

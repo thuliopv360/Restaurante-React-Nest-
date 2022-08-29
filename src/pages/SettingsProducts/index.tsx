@@ -1,6 +1,5 @@
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
-import { MarketIcon, InfoIcon, PromotionIcon } from "../../assets/icons";
 import Button from "../../components/Button";
 import SettingsProductCard from "../../components/SettingsProductCard";
 import { useProducts } from "../../contexts/products";

@@ -8,6 +8,7 @@ import { api } from "../../services";
 import toast from "react-hot-toast";
 import Button from "../../components/Button";
 import Logo from "../../assets/logo_patterns/logo.png";
+import { useNavigate } from "react-router-dom";
 
 interface RegisterData {
   name: string; //
@@ -53,6 +54,7 @@ const registerSchema = yup.object().shape({
 
 const Register = () => {
   const { login } = useAuth();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -67,7 +69,7 @@ const Register = () => {
         login({ token: res.data.token, user: res.data.user });
       })
       .catch(() => {
-        toast.error("");
+        toast.error("Usuário ou senha Invalido!");
       });
   };
 
