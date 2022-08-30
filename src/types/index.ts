@@ -47,6 +47,7 @@ export interface OrderToProduct {
 }
 
 export interface User {
+  map: any;
   id?: string;
   name: string;
   email: string;

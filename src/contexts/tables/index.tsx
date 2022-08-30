@@ -37,7 +37,6 @@ export const TablesProvider = ({ children }: TablesProviderProps) => {
     };
 
     api.get("/table", headers).then((res) => {
-      console.log(res);
       setTables(res.data);
     });
   };

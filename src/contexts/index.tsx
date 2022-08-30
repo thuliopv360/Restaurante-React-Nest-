@@ -6,6 +6,7 @@ import { ProductsProvider } from "./products";
 import { CategoriesProvider } from "./categories";
 import theme from "../assets/styles/theme";
 import { TablesProvider } from "./tables";
+import { UsersProvider } from "./users";
 
 interface ProvidersProps {
   children: ReactNode;
@@ -18,7 +19,9 @@ const Providers = ({ children }: ProvidersProps) => {
         <AuthProvider>
           <CategoriesProvider>
             <ProductsProvider>
-              <TablesProvider>{children}</TablesProvider>
+              <TablesProvider>
+                <UsersProvider>{children}</UsersProvider>
+              </TablesProvider>
             </ProductsProvider>
           </CategoriesProvider>
         </AuthProvider>

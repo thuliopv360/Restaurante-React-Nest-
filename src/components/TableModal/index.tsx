@@ -55,8 +55,7 @@ const TableModal = ({ handleOpenModal, table, setTable }: TableModalProps) => {
         handleGetTables();
         handleOpenModal();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         toast.error("Erro na hora de criar mesa");
       });
   };

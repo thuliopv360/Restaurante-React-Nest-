@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import SettingsCategories from "./pages/SettingsCategories";
 import SettingsProducts from "./pages/SettingsProducts";
 import SettingsTables from "./pages/SettingsTables";
+import SettingsUsers from "./pages/SettingsUsers";
 
 const Router = () => {
   const { logged } = useAuth();
@@ -18,6 +19,7 @@ const Router = () => {
           <Route path="/settings/products" element={<SettingsProducts />} />
           <Route path="/settings/categories" element={<SettingsCategories />} />
           <Route path="/settings/table" element={<SettingsTables />} />
+          <Route path="/settings/users" element={<SettingsUsers />} />
         </>
       ) : (
         <>
