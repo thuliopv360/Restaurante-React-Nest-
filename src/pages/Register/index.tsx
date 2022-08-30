@@ -65,8 +65,8 @@ const Register = () => {
   const handleRegister = (data: RegisterData) => {
     api
       .post("/users", data)
-      .then((res) => {
-        login({ token: res.data.token, user: res.data.user });
+      .then(() => {
+        navigate("/login");
       })
       .catch(() => {
         toast.error("Usuário ou senha Invalido!");

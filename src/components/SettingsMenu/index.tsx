@@ -3,7 +3,7 @@ import { InfoIcon, MarketIcon, PromotionIcon } from "../../assets/icons";
 import * as Styled from "./styles";
 
 interface SettingsMenuProps {
-  path: "users" | "tables" | "categories" | "products";
+  path: "users" | "table" | "categories" | "products";
 }
 
 const SettingsMenu = ({ path }: SettingsMenuProps) => {
@@ -15,10 +15,10 @@ const SettingsMenu = ({ path }: SettingsMenuProps) => {
         <h2>Configurações</h2>
         <Styled.SettingsNavigationButtonsList>
           <Styled.SettingsNavigationButtonContainer
-            active={path === "tables"}
-            onClick={() => navigate("/settings/tables")}
+            active={path === "table"}
+            onClick={() => navigate("/settings/table")}
           >
-            <Styled.SettingsNavigationButtonSelected active={path === "tables"}>
+            <Styled.SettingsNavigationButtonSelected active={path === "table"}>
               <MarketIcon />
               <h2>Customize suas mesas</h2>
               <p>Adicione mesas, configure nomes</p>

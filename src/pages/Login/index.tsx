@@ -58,16 +58,26 @@ const Login = () => {
           <h1>Restaurante Fresh</h1>
           <img alt="logo" src={Logo} />
         </Styled.LoginLogoContainer>
-        <StyledInput placeholder="Email" {...register("email")} />
+        <StyledInput
+          placeholder="Email"
+          inputSize="large"
+          {...register("email")}
+        />
         <StyledInput
           type="password"
           placeholder="Senha"
+          inputSize="large"
           {...register("password")}
         />
-        <div>
-          <Button text="Entrar" size="large" type="submit" />
-          <Button text="Cadastrar" size="large" type="submit" onClick={() => navigate("/register")}/>
-        </div>
+        <Styled.ButtonContainer>
+          <Button text="Entrar" size="x-large" type="submit" />
+          <Button
+            text="Cadastrar"
+            size="x-large"
+            type="submit"
+            onClick={() => navigate("/register")}
+          />
+        </Styled.ButtonContainer>
         <Styled.ErrorMessage>
           {errors.email?.message || errors.password?.message}
         </Styled.ErrorMessage>

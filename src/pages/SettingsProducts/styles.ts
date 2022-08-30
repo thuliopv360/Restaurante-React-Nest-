@@ -24,6 +24,7 @@ export const EntitiesEditContainer = styled.div`
     background-color: ${theme.colors.baseBg2};
     border-radius: 8px;
     color: ${theme.colors.textColor};
+
     h2 {
       margin: 2.125rem 0;
       margin-left: 1.5rem;
@@ -70,7 +71,7 @@ export const EntitiesEditList = styled.div`
     padding: 1.5rem;
     box-sizing: border-box;
     gap: 1.5rem;
-    overflow-y: scroll;
+    overflow-x: hidden;
   `}
 `;
 

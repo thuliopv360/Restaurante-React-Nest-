@@ -24,6 +24,7 @@ interface ProductModalProsp {
 interface NewProductData {
   name?: string;
   description?: string;
+  ingredient?: string;
   price?: number;
   image?: string;
   categoryId?: string;
@@ -124,6 +125,12 @@ const ProductModal = ({
           placeholder="Descrição do Produto"
           {...register("description")}
         />
+        <StyledInput
+          defaultValue={product ? product.ingredient : ""}
+          placeholder="Ingredientes do Produto"
+          {...register("ingredient")}
+        />
+
         <StyledInput
           defaultValue={product ? product.price : ""}
           type="number"

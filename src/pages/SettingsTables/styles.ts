@@ -30,13 +30,13 @@ export const EntitiesEditContainer = styled.div`
 export const EntitiesEditList = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: calc(100% - 16.25rem);
+    max-height: calc(100% - 16.25rem);
     display: flex;
     flex-wrap: wrap;
     padding: 1.5rem;
     box-sizing: border-box;
     gap: 1.5rem;
-    overflow-x: hidden;
+    overflow-y: hidden;
   `}
 `;
 
@@ -77,7 +77,7 @@ export const EntityCard = styled.div`
   `}
 `;
 
-export const SettingsCategoryEditButton = styled.button`
+export const SettingsTableEditButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
     width: 50%;
@@ -93,7 +93,7 @@ export const SettingsCategoryEditButton = styled.button`
   `}
 `;
 
-export const SettingsCategoryDeleteButton = styled.button`
+export const SettingsTableDeleteButton = styled.button`
   ${({ theme }) => css`
     height: 3.25rem;
     width: 50%;

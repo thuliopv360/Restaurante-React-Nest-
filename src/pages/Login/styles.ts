@@ -25,6 +25,10 @@ export const LoginFormContainer = styled.form`
     justify-content: space-around;
     padding: 2rem 0;
     box-sizing: border-box;
+
+    input {
+      margin: 0.2rem;
+    }
   `}
 `;
 
@@ -36,6 +40,7 @@ export const LoginLogoContainer = styled.div`
     justify-content: space-between;
     padding: 0 1rem;
     box-sizing: border-box;
+
     h1 {
       width: 20rem;
       height: 9.2rem;
@@ -48,6 +53,7 @@ export const LoginLogoContainer = styled.div`
       border-bottom: 2px double ${theme.colors.textColor};
       border-spacing: 1px;
     }
+
     img {
       width: 8rem;
       height: 8rem;
@@ -63,5 +69,16 @@ export const ErrorMessage = styled.p`
     height: 2rem;
     padding: 0 2rem;
     text-align: center;
+  `}
+`;
+
+export const ButtonContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+
+    button {
+      margin: 0.2rem;
+    }
   `}
 `;
