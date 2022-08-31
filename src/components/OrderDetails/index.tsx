@@ -1,10 +1,12 @@
 import toast from "react-hot-toast";
-import { mockedProducts } from "../../mocks";
+import { useProducts } from "../../contexts/products";
 import Button from "../Button";
 import CheckoutCard from "../CheckoutCard";
 import * as Styled from "./styles";
 
 const OrderDetails = () => {
+  const { products } = useProducts();
+
   return (
     <Styled.OrderDetailsContainer>
       <Styled.OrderDetailsHeader>
@@ -34,8 +36,8 @@ const OrderDetails = () => {
           <h3>Preço</h3>
         </Styled.CheckoutDetailsHeader>
         <Styled.CheckoutCardsContainer>
-          <CheckoutCard product={mockedProducts[0]} />
-          <CheckoutCard product={mockedProducts[1]} />
+          {/* <CheckoutCard product={products[0]} />
+          <CheckoutCard product={products[1]} /> */}
         </Styled.CheckoutCardsContainer>
       </Styled.CheckoutDetailsContainer>
       <Styled.OrderDetailsFooter>

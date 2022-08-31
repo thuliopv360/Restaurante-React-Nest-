@@ -9,11 +9,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { Dispatch, SetStateAction, useState } from "react";
-import { mockedCategories } from "../../mocks";
 import { api } from "../../services";
 import toast from "react-hot-toast";
 import { useProducts } from "../../contexts/products";
 import { Product } from "../../types";
+import { useCategories } from "../../contexts/categories";
 
 interface ProductModalProsp {
   handleOpenModal: () => void;
@@ -105,6 +105,8 @@ const ProductModal = ({
     });
   };
 
+  const { categories } = useCategories();
+
   return (
     <ModalOverlay>
       <Styled.ModalContainer
@@ -148,7 +150,7 @@ const ProductModal = ({
           onChange={(e) => setCategoryId(e.target.value)}
         >
           <option>Selecione a categoria</option>
-          {mockedCategories.map((element) => (
+          {categories.map((element) => (
             <option key={element.id} value={element.id}>
               {element.name}
             </option>
