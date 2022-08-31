@@ -190,24 +190,6 @@ export const mockedTables: T.Table[] = [
   },
 ];
 
-export const mockedUsers: T.User[] = [
-  {
-    id: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
-    name: "Ivan Borba",
-    email: "ivan@blue.com",
-    password: "7ccbf779f22b9579f80ba3afebcb0e7e",
-    country: "Brasil",
-    state: "Minas Gerais",
-    cities: "Dona Euzebia",
-    cep: 1526,
-    district: "Centro",
-    street: "Rua Joao Carneiro",
-    number: 1029,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-];
-
 export const mockedFavorites: T.Favorite[] = [
   {
     id: "bbf4cd1e-7daa-4a82-8909-be09e91df60c",
