@@ -157,82 +157,82 @@ export const mockedCategories: T.Category[] = [
   },
 ];
 
-export const mockedTables: T.Table[] = [
-  {
-    id: "922135eb-97dd-47cb-b5d5-7497c753ad57",
-    number: 1,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "4bf14495-5ae7-4313-9407-7ee9c506cf26",
-    number: 2,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "496df91e-0740-4950-b8f7-e1d33b1519d0",
-    number: 3,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "e9950c4a-d449-41d3-b91a-ccd1caa05fbb",
-    number: 4,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "323fad4f-7630-428d-9140-35d62f7f9c22",
-    number: 5,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-];
+// export const mockedTables: T.Table[] = [
+//   {
+//     id: "922135eb-97dd-47cb-b5d5-7497c753ad57",
+//     number: 1,
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   },
+//   {
+//     id: "4bf14495-5ae7-4313-9407-7ee9c506cf26",
+//     number: 2,
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   },
+//   {
+//     id: "496df91e-0740-4950-b8f7-e1d33b1519d0",
+//     number: 3,
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   },
+//   {
+//     id: "e9950c4a-d449-41d3-b91a-ccd1caa05fbb",
+//     number: 4,
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   },
+//   {
+//     id: "323fad4f-7630-428d-9140-35d62f7f9c22",
+//     number: 5,
+//     createdAt: new Date(),
+//     updatedAt: new Date(),
+//   },
+// ];
 
-export const mockedFavorites: T.Favorite[] = [
-  {
-    id: "bbf4cd1e-7daa-4a82-8909-be09e91df60c",
-    productName: "Lazanha",
-    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
-    favoritedAt: new Date(),
-  },
-  {
-    id: "91e674e6-84a0-4e8a-b5f1-5932dfc76bf4",
-    productName: "Suco da casa Laranja",
-    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
-    favoritedAt: new Date(),
-  },
-  {
-    id: "39ab4464-1496-4ced-a4c0-e9dda74c7fa8",
-    productName: "Pudim de chocolate da casa",
-    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
-    favoritedAt: new Date(),
-  },
-];
+// export const mockedFavorites: T.Favorite[] = [
+//   {
+//     id: "bbf4cd1e-7daa-4a82-8909-be09e91df60c",
+//     productName: "Lazanha",
+//     userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
+//     favoritedAt: new Date(),
+//   },
+//   {
+//     id: "91e674e6-84a0-4e8a-b5f1-5932dfc76bf4",
+//     productName: "Suco da casa Laranja",
+//     userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
+//     favoritedAt: new Date(),
+//   },
+//   {
+//     id: "39ab4464-1496-4ced-a4c0-e9dda74c7fa8",
+//     productName: "Pudim de chocolate da casa",
+//     userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
+//     favoritedAt: new Date(),
+//   },
+// ];
 
-export const mockedOrders: T.Order[] = [
-  {
-    id: "e45555e4-8933-420b-bedb-9814c9a8374d",
-    tableNumber: 1,
-    userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
-    createdAt: new Date(),
-  },
-];
+// export const mockedOrders: T.Order[] = [
+//   {
+//     id: "e45555e4-8933-420b-bedb-9814c9a8374d",
+//     tableNumber: 1,
+//     userId: "59537df4-f0fa-4692-8e6a-5f9d8c784c03",
+//     createdAt: new Date(),
+//   },
+// ];
 
-export const mockedOrdersToProducts: T.OrderToProduct[] = [
-  {
-    id: "41889bd0-a2a1-454d-823d-eb5d73d73e59",
-    productId: "10c6c5d1-24eb-436d-a21a-0c9b8516f9fa",
-    orderId: "e45555e4-8933-420b-bedb-9814c9a8374d",
-    quantity: 2,
-    createdAt: new Date(),
-  },
-  {
-    id: "53eeb0a6-ed71-458c-b1e3-1a22ba4d2b76",
-    productId: "b1cb2926-59e1-4443-abd7-22ba2e81f9cf",
-    orderId: "e45555e4-8933-420b-bedb-9814c9a8374d",
-    quantity: 1,
-    createdAt: new Date(),
-  },
-];
+// export const mockedOrdersToProducts: T.OrderToProduct[] = [
+//   {
+//     id: "41889bd0-a2a1-454d-823d-eb5d73d73e59",
+//     productId: "10c6c5d1-24eb-436d-a21a-0c9b8516f9fa",
+//     orderId: "e45555e4-8933-420b-bedb-9814c9a8374d",
+//     quantity: 2,
+//     createdAt: new Date(),
+//   },
+//   {
+//     id: "53eeb0a6-ed71-458c-b1e3-1a22ba4d2b76",
+//     productId: "b1cb2926-59e1-4443-abd7-22ba2e81f9cf",
+//     orderId: "e45555e4-8933-420b-bedb-9814c9a8374d",
+//     quantity: 1,
+//     createdAt: new Date(),
+//   },
+// ];
