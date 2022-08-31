@@ -46,7 +46,6 @@ const SettingsProducts = () => {
               <Styled.EntitiesEditCategoriesButton
                 active={element.name === selectedCategory.name}
                 onClick={() => setSelectedCategory(element)}
-                key={element.id}
               >
                 {element.name}
               </Styled.EntitiesEditCategoriesButton>
